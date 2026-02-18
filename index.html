@@ -125,6 +125,16 @@
 
   <div class="linha"></div>
 
+<div class="confirmacao">
+  <button id="btn-confirmar" class="btn-confirmar">
+    Estou confirmado
+  </button>
+  <div class="contador-confirmados">
+    <span id="qtd-confirmados">0</span> confirmados
+  </div>
+</div>
+
+
   <!-- CARDS -->
   <div class="cards">
 
@@ -304,6 +314,34 @@
   aplicarConfig();
   atualizar();
   setInterval(atualizar, 1000);
+
+  async function carregarConfirmados() {
+  const res = await fetch('/api/confirmar');
+  const data = await res.json();
+  document.getElementById('qtd-confirmados').textContent = data.total;
+}
+
+async function confirmarPresenca() {
+  const btn = document.getElementById('btn-confirmar');
+
+  btn.disabled = true;
+  btn.textContent = 'Confirmando...';
+
+  const res = await fetch('/api/confirmar', {
+    method: 'POST'
+  });
+
+  const data = await res.json();
+
+  document.getElementById('qtd-confirmados').textContent = data.total;
+  btn.textContent = 'Confirmado ✓';
+}
+
+document.getElementById('btn-confirmar')
+  .addEventListener('click', confirmarPresenca);
+
+carregarConfirmados();
+
 </script>
 </body>
 </html>

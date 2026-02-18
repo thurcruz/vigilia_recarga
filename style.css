@@ -501,3 +501,29 @@
   letter-spacing: 0.5px;
 }
 
+.confirmacao {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.btn-confirmar {
+  background: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-confirmar:hover {
+  transform: translateY(-2px);
+}
+
+.contador-confirmados {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
