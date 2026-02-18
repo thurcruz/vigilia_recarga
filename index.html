@@ -6,7 +6,8 @@
   <title>Vigília Recarga</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -98,6 +99,31 @@
     </div>
   </div>
 
+  <div id="story-capture" class="story-capture">
+  <div class="story-inner">
+    <img id="story-logo" src="img/logo-recarga.png" class="story-logo">
+    <h1 id="story-nome">VIGÍLIA RECARGA</h1>
+    <p id="story-tagline">"DESTRONANDO ÍDOLOS"</p>
+
+    <div class="story-count">
+      <span id="story-dias">00</span>:
+      <span id="story-horas">00</span>:
+      <span id="story-minutos">00</span>
+    </div>
+
+    <div class="story-data" id="story-data">
+      27 FEV - 28 FEV
+    </div>
+  </div>
+</div>
+
+     <div class="confirmacao">
+  <button class="btn-confirmar" id="btn-share">
+    Compartilhar contagem
+  </button>
+</div>
+
+
   <!-- MENSAGEM AO VIVO -->
   <div class="mensagem-ao-vivo" id="ao-vivo">
     <h2>⚡ ACONTECENDO AGORA!</h2>
@@ -128,11 +154,7 @@
     </div>
   </div>
 
-  <div class="confirmacao">
-  <button class="btn-confirmar" id="btn-share">
-    Compartilhar contagem
-  </button>
-</div>
+ 
 
   <div class="linha"></div>
 
@@ -224,6 +246,8 @@
   for (let i = 0; i < 30; i++) criarParticula();
   setInterval(criarParticula, 1200);
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <!-- ═══ LÓGICA PRINCIPAL ═══ -->
 <script>
