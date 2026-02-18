@@ -16,7 +16,7 @@
       /* 🔤 Tipografia */
       --fonte-titulo:     'Inter', sans-serif;
       --fonte-corpo:      'Inter', sans-serif;
-      --fonte-countdown:  'Inter', sans-serif;
+      --fonte-countdown:  'Space Mono', monospace;
 
       /* 📅 DATA E HORA DO EVENTO */
       /* Formato: 'AAAA-MM-DD HH:MM'  —  use sempre a data do evento! */
@@ -176,7 +176,7 @@
       padding: 8px 22px;
       font-size: 13px;
       letter-spacing: 0.1em;
-      color: var(--cor-brilho);
+      color: white;
       margin-bottom: 40px;
       animation: fadeIn 1.2s 0.4s ease both;
     }
@@ -475,19 +475,17 @@
     /* ═══ RESPONSIVO ═══ */
     @media (max-width: 520px) {
       .sep { display: none; }
-      .bloco {
-    width: 70px;
-    flex: 0 0 70px;
-  }
+      .bloco {width: 70px; flex: 0 0 70px; }
       .horario-evento { flex-direction: column; gap: 6px; }
+      .horario-seta {transform: rotate(90deg);margin: 6px 0; }
     }
 
     .logo-img {
-  width: 56px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px var(--cor-primaria));
-}
+     width: 56px;
+    height: auto;
+     object-fit: contain;
+     filter: drop-shadow(0 0 20px var(--cor-primaria));
+    }
 
 .card-bloqueado {
   opacity: 0.6;

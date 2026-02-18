@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vigília Recarga</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -128,6 +128,12 @@
     </div>
   </div>
 
+  <div class="confirmacao">
+  <button class="btn-confirmar" id="btn-share">
+    Compartilhar contagem
+  </button>
+</div>
+
   <div class="linha"></div>
 
 
@@ -137,8 +143,9 @@
   <div class="cards">
 
   <!-- INFO EXTRA -->
-    <div class="info-gratuita" id="card-extra" style="display:none">
-      <div class="card-valor" id="texto-extra"></div>
+    <div class="data-badge" id="card-extra" style="display:none">
+  <span class="dot"></span>
+  <span id="texto-extra"></span>
     </div>
 
     <!-- ENDEREÇO -->
@@ -325,6 +332,42 @@ const DURACAO_EVENTO_MS = calcularDuracao();
   atualizar();
   setInterval(atualizar, 1000);
 
+async function compartilharContagem() {
+  const dias = document.getElementById('dias').textContent;
+  const horas = document.getElementById('horas').textContent;
+  const minutos = document.getElementById('minutos').textContent;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1920;
+  const ctx = canvas.getContext('2d');
+
+  // fundo
+  ctx.fillStyle = "#ff4800";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // título
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 80px Inter";
+  ctx.textAlign = "center";
+  ctx.fillText(CONFIG.nomeEvento, 540, 400);
+
+  // contagem
+  ctx.font = "bold 160px Space Mono";
+  ctx.fillText(`${dias}:${horas}:${minutos}`, 540, 900);
+
+  ctx.font = "40px Inter";
+  ctx.fillText("Faltando para começar", 540, 1050);
+
+  // converter para imagem
+  const link = document.createElement('a');
+  link.download = 'contagem.png';
+  link.href = canvas.toDataURL();
+  link.click();
+}
+
+document.getElementById('btn-share')
+  .addEventListener('click', compartilharContagem);
 
 
 </script>
