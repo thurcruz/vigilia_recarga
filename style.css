@@ -479,7 +479,7 @@
 }
 
 .card-bloqueado {
-  opacity: 0.5;
+  opacity: 0.9;
   filter: grayscale(0.6);
   border-style: dashed;
 }
