@@ -15,8 +15,8 @@
 
       /* 🔤 Tipografia */
       --fonte-titulo:     'Inter', sans-serif;
-      --fonte-corpo:      'Syne', sans-serif;
-      --fonte-countdown:  'Space Mono', monospace;
+      --fonte-corpo:      'Inter', sans-serif;
+      --fonte-countdown:  'Inter', sans-serif;
 
       /* 📅 DATA E HORA DO EVENTO */
       /* Formato: 'AAAA-MM-DD HH:MM'  —  use sempre a data do evento! */
@@ -120,6 +120,7 @@
     /* ═══ TÍTULO ═══ */
     .titulo-evento {
       font-family: var(--fonte-titulo);
+      font-weight: 800;
       font-size: clamp(52px, 12vw,  110px);
       letter-spacing: 0.04em;
       line-height: 0.9;
@@ -389,7 +390,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin: 32px 0 12px;
+      margin: 24px 0 32px;
       animation: fadeIn 1.3s 0.8s ease both;
     }
 
@@ -476,3 +477,27 @@
   object-fit: contain;
   filter: drop-shadow(0 0 20px var(--cor-primaria));
 }
+
+.card-bloqueado {
+  opacity: 0.5;
+  filter: grayscale(0.6);
+  border-style: dashed;
+}
+
+.card-bloqueado .card-valor {
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+
+.info-gratuita {
+  margin: 18px 0 24px;
+  padding: 10px 18px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 999px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--cor-primaria);
+  letter-spacing: 0.5px;
+}
+

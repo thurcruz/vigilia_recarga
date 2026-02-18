@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vigília Recarga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
     nomeEvento: 'VIGÍLIA RECARGA',
 
     // ✏️ Tagline / subtítulo
-    tagline: '— DESTRONANDO ÍDOLOS —',
+    tagline: '" DESTRONANDO ÍDOLOS "',
 
     // ✏️ Emoji/ícone no círculo do topo
     logo: 'img/logo-recarga.png',
@@ -128,6 +128,11 @@
   <!-- CARDS -->
   <div class="cards">
 
+  <!-- INFO EXTRA -->
+    <div class="info-gratuita" id="card-extra" style="display:none">
+      <div class="card-valor" id="texto-extra"></div>
+    </div>
+
     <!-- ENDEREÇO -->
     <div class="card">
       <div class="card-icon">📍</div>
@@ -152,16 +157,35 @@
       </div>
     </div>
 
-    <!-- INFO EXTRA -->
-    <div class="card" id="card-extra" style="display:none">
-      <div class="card-icon">✨</div>
-      <div class="card-titulo">Informação</div>
-      <div class="card-valor" id="texto-extra"></div>
-    </div>
+  <div class="card card-bloqueado">
+  <div class="card-icon">🔒</div>
+  <div class="card-titulo">Setlist</div>
+  <div class="card-valor">Em breve...</div>
+</div>
+
+    <!-- LINE UP (BLOQUEADO) -->
+<div class="card card-bloqueado">
+  <div class="card-icon">🔒</div>
+  <div class="card-titulo">Line Up</div>
+  <div class="card-valor">Em breve...</div>
+</div>
+
+
+<div class="card card-bloqueado">
+  <div class="card-icon">🔒</div>
+  <div class="card-titulo">Ache suas fotos</div>
+  <div class="card-valor">Disponível após o evento</div>
+</div>
+
+
 
   </div>
 
-  <footer>vigília recarga &nbsp;·&nbsp; destronando ídolos</footer>
+  <!-- FOTOS (BLOQUEADO) -->
+
+
+
+  <footer>ministério recarga &nbsp;·&nbsp; 2026©</footer>
 </div>
 
 <!-- ═══ PARTÍCULAS ═══ -->
