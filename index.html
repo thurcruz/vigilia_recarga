@@ -333,40 +333,45 @@ const DURACAO_EVENTO_MS = calcularDuracao();
   setInterval(atualizar, 1000);
 
 async function compartilharContagem() {
-  const dias = document.getElementById('dias').textContent;
-  const horas = document.getElementById('horas').textContent;
-  const minutos = document.getElementById('minutos').textContent;
+  // Atualiza valores no layout do story
+  document.getElementById('story-dias').textContent =
+    document.getElementById('dias').textContent;
 
-  const canvas = document.createElement('canvas');
-  canvas.width = 1080;
-  canvas.height = 1920;
-  const ctx = canvas.getContext('2d');
+  document.getElementById('story-horas').textContent =
+    document.getElementById('horas').textContent;
 
-  // fundo
-  ctx.fillStyle = "#ff4800";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  document.getElementById('story-minutos').textContent =
+    document.getElementById('minutos').textContent;
 
-  // título
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 80px Inter";
-  ctx.textAlign = "center";
-  ctx.fillText(CONFIG.nomeEvento, 540, 400);
+  document.getElementById('story-nome').textContent =
+    CONFIG.nomeEvento;
 
-  // contagem
-  ctx.font = "bold 160px Space Mono";
-  ctx.fillText(`${dias}:${horas}:${minutos}`, 540, 900);
+  document.getElementById('story-tagline').textContent =
+    CONFIG.tagline;
 
-  ctx.font = "40px Inter";
-  ctx.fillText("Faltando para começar", 540, 1050);
+  document.getElementById('story-data').textContent =
+    CONFIG.dataBadge;
 
-  // converter para imagem
+  document.getElementById('story-logo').src =
+    CONFIG.logo;
+
+  const elemento = document.getElementById('story-capture');
+
+  const canvas = await html2canvas(elemento, {
+    width: 1080,
+    height: 1920,
+    scale: 1,
+    backgroundColor: null
+  });
+
   const link = document.createElement('a');
-  link.download = 'contagem.png';
+  link.download = 'contagem-recarga.png';
   link.href = canvas.toDataURL();
   link.click();
 }
 
-document.getElementById('btn-share')
+document
+  .getElementById('btn-share')
   .addEventListener('click', compartilharContagem);
 
 
