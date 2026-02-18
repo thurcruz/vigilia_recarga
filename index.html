@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigília Recarga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     ✏️  EDITE AS INFORMAÇÕES DO EVENTO AQUI
+═══════════════════════════════════════════ -->
+<script>
+  /* ── CONFIGURAÇÃO DO EVENTO ── */
+  const CONFIG = {
+    // 📅 Data e hora de início (formato: AAAA-MM-DD HH:MM)
+    dataInicio: '2026-02-27 22:00',
+
+    // ✏️ Nome do evento
+    nomeEvento: 'VIGÍLIA RECARGA',
+
+    // ✏️ Tagline / subtítulo
+    tagline: '— DESTRONANDO ÍDOLOS —',
+
+    // ✏️ Emoji/ícone no círculo do topo
+    logo: 'img/logo-recarga.png',
+
+
+    // ✏️ Data exibida no badge (ex: "07 JUN 2025")
+    dataBadge: '27 FEV 2026',
+
+    // ✏️ Horário do evento
+    horarioInicio: '22:00',
+    horarioFim: '06:00',
+
+    // 📍 Link do endereço (Google Maps ou outro)
+    linkEndereco: 'https://maps.google.com/?q=Seu+Endereço+Aqui',
+    // ✏️ Texto do endereço
+    textoEndereco: 'Rua União da Vitória - 564',
+
+    // 📸 Instagram
+    instagram: '@recargaoficial',
+    linkInstagram: 'https://instagram.com/recargaoficial',
+
+    // ✏️ Informação extra (opcional — deixe vazio '' para esconder)
+    infoExtra: 'Entrada gratuita · Aberto para todos',
+  };
+</script>
+
+<div class="container">
+
+  <!-- LOGO -->
+  <div class="logo-area">
+  <img id="logo-evento" src="img/logo-recarga.png" alt="Recarga" class="logo-img">
+</div>
+
+
+  <!-- TÍTULO -->
+  <h1 class="titulo-evento" id="nome-evento">VIGÍLIA RECARGA</h1>
+  <p class="subtitulo" id="tagline-evento">— DESTRONANDO ÍDOLOS —</p>
+
+  <div class="linha"></div>
+
+  <!-- BADGE DATA -->
+  <div class="data-badge">
+    <span class="dot"></span>
+    <span id="badge-data">27 FEV 2026</span>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap" id="countdown-wrap">
+    <div class="bloco">
+      <div class="numero-wrap"><span class="numero" id="dias">00</span></div>
+      <span class="label">Dias</span>
+    </div>
+    <span class="sep">:</span>
+    <div class="bloco">
+      <div class="numero-wrap"><span class="numero" id="horas">00</span></div>
+      <span class="label">Horas</span>
+    </div>
+    <span class="sep">:</span>
+    <div class="bloco">
+      <div class="numero-wrap"><span class="numero" id="minutos">00</span></div>
+      <span class="label">Min</span>
+    </div>
+    <span class="sep">:</span>
+    <div class="bloco">
+      <div class="numero-wrap"><span class="numero" id="segundos">00</span></div>
+      <span class="label">Seg</span>
+    </div>
+  </div>
+
+  <!-- MENSAGEM AO VIVO -->
+  <div class="mensagem-ao-vivo" id="ao-vivo">
+    <h2>⚡ ACONTECENDO AGORA!</h2>
+    <p>A Vigília Recarga está em andamento — nos vemos lá!</p>
+  </div>
+
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progresso-wrap">
+    <div class="progresso-label">
+      <span>CONTAGEM REGRESSIVA</span>
+      <span id="pct">0%</span>
+    </div>
+    <div class="barra-fundo">
+      <div class="barra-fill" id="barra" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- HORÁRIO -->
+  <div class="horario-evento">
+    <div class="horario-bloco">
+      <span class="horario-hora" id="h-inicio">22:00</span>
+      <span class="horario-label">Início</span>
+    </div>
+    <span class="horario-seta">→</span>
+    <div class="horario-bloco">
+      <span class="horario-hora" id="h-fim">06:00</span>
+      <span class="horario-label">Encerramento</span>
+    </div>
+  </div>
+
+  <div class="linha"></div>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <!-- ENDEREÇO -->
+    <div class="card">
+      <div class="card-icon">📍</div>
+      <div class="card-titulo">Localização</div>
+      <div class="card-valor">
+        <a id="link-endereco" href="#" target="_blank" rel="noopener">
+          <span id="texto-endereco">Rua Exemplo, 123 — Cidade/UF</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="card">
+      <div class="card-icon">📸</div>
+      <div class="card-titulo">Instagram</div>
+      <div class="card-valor">
+        <a id="link-instagram" href="#" target="_blank" rel="noopener">
+          <span id="texto-instagram">@vigliarecarga</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- INFO EXTRA -->
+    <div class="card" id="card-extra" style="display:none">
+      <div class="card-icon">✨</div>
+      <div class="card-titulo">Informação</div>
+      <div class="card-valor" id="texto-extra"></div>
+    </div>
+
+  </div>
+
+  <footer>vigília recarga &nbsp;·&nbsp; destronando ídolos</footer>
+</div>
+
+<!-- ═══ PARTÍCULAS ═══ -->
+<script>
+  function criarParticula() {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 1;
+    const colors = ['rgba(123,47,255,0.6)', 'rgba(255,47,123,0.5)', 'rgba(176,106,255,0.5)'];
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}vw;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${8 + Math.random()*12}s;
+      animation-delay:${Math.random()*10}s;
+      box-shadow: 0 0 ${size*2}px currentColor;
+    `;
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), (8 + 12 + 10) * 1000);
+  }
+  for (let i = 0; i < 30; i++) criarParticula();
+  setInterval(criarParticula, 1200);
+</script>
+
+<!-- ═══ LÓGICA PRINCIPAL ═══ -->
+<script>
+  /* ─── Aplica CONFIG ao DOM ─── */
+  function aplicarConfig() {
+    const C = CONFIG;
+    document.title = C.nomeEvento;
+    document.getElementById('logo-evento').src = C.logo;
+    document.getElementById('nome-evento').textContent     = C.nomeEvento;
+    document.getElementById('tagline-evento').textContent  = C.tagline;
+    document.getElementById('badge-data').textContent      = C.dataBadge;
+    document.getElementById('h-inicio').textContent        = C.horarioInicio;
+    document.getElementById('h-fim').textContent           = C.horarioFim;
+
+    document.getElementById('link-endereco').href          = C.linkEndereco;
+    document.getElementById('texto-endereco').textContent  = C.textoEndereco;
+    document.getElementById('link-instagram').href         = C.linkInstagram;
+    document.getElementById('texto-instagram').textContent = C.instagram;
+
+    if (C.infoExtra) {
+      document.getElementById('card-extra').style.display = '';
+      document.getElementById('texto-extra').textContent  = C.infoExtra;
+    }
+  }
+
+  /* ─── Countdown ─── */
+  function parseData(str) {
+    // 'AAAA-MM-DD HH:MM' → Date no fuso local
+    const [datePart, timePart] = str.split(' ');
+    const [y, m, d]            = datePart.split('-').map(Number);
+    const [h, min]             = timePart.split(':').map(Number);
+    return new Date(y, m - 1, d, h, min, 0);
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  // O evento termina 8h depois do início
+  const DURACAO_EVENTO_MS = 8 * 60 * 60 * 1000;
+
+  function atualizar() {
+    const agora     = new Date();
+    const inicio    = parseData(CONFIG.dataInicio);
+    const fim       = new Date(inicio.getTime() + DURACAO_EVENTO_MS);
+    const diff      = inicio - agora;
+
+    const wrap    = document.getElementById('countdown-wrap');
+    const aoVivo  = document.getElementById('ao-vivo');
+    const barra   = document.getElementById('barra');
+    const pct     = document.getElementById('pct');
+
+    if (diff > 0) {
+      // Ainda não começou — mostra countdown
+      wrap.style.display    = 'flex';
+      aoVivo.style.display  = 'none';
+
+      const dias    = Math.floor(diff / 86400000);
+      const horas   = Math.floor((diff % 86400000) / 3600000);
+      const mins    = Math.floor((diff % 3600000)  / 60000);
+      const segs    = Math.floor((diff % 60000)    / 1000);
+
+      document.getElementById('dias').textContent     = pad(dias);
+      document.getElementById('horas').textContent    = pad(horas);
+      document.getElementById('minutos').textContent  = pad(mins);
+      document.getElementById('segundos').textContent = pad(segs);
+
+      // Progresso baseado nos últimos 7 dias antes do evento
+      const janela  = 7 * 24 * 60 * 60 * 1000;
+      const decorrido = janela - diff;
+      const pctVal  = Math.max(0, Math.min(100, (decorrido / janela) * 100));
+      barra.style.width = pctVal.toFixed(1) + '%';
+      pct.textContent   = pctVal.toFixed(0) + '%';
+
+    } else if (agora <= fim) {
+      // Acontecendo agora
+      wrap.style.display    = 'none';
+      aoVivo.style.display  = 'block';
+      barra.style.width     = '100%';
+      pct.textContent       = '100%';
+
+    } else {
+      // Evento encerrado — reinicia countdown para a próxima edição?
+      // Por enquanto mostra zeros
+      wrap.style.display    = 'flex';
+      aoVivo.style.display  = 'none';
+      ['dias','horas','minutos','segundos'].forEach(id => {
+        document.getElementById(id).textContent = '00';
+      });
+      barra.style.width = '100%';
+      pct.textContent   = '100%';
+    }
+  }
+
+  aplicarConfig();
+  atualizar();
+  setInterval(atualizar, 1000);
+</script>
+</body>
+</html>
