@@ -23,21 +23,21 @@
     nomeEvento: 'VIGÍLIA RECARGA',
 
     // ✏️ Tagline / subtítulo
-    tagline: '" DESTRONANDO ÍDOLOS "',
+    tagline: '"DESTRONANDO ÍDOLOS"',
 
     // ✏️ Emoji/ícone no círculo do topo
     logo: 'img/logo-recarga.png',
 
 
     // ✏️ Data exibida no badge (ex: "07 JUN 2025")
-    dataBadge: '27 FEV 2026',
+    dataBadge: '27 FEV - 28 FEV',
 
     // ✏️ Horário do evento
     horarioInicio: '22:00',
     horarioFim: '06:00',
 
     // 📍 Link do endereço (Google Maps ou outro)
-    linkEndereco: 'https://maps.google.com/?q=Seu+Endereço+Aqui',
+    linkEndereco: 'https://share.google/FLG6hebvAmGrC3NvT',
     // ✏️ Texto do endereço
     textoEndereco: 'Rua União da Vitória - 564',
 
@@ -60,9 +60,11 @@
 
   <!-- TÍTULO -->
   <h1 class="titulo-evento" id="nome-evento">VIGÍLIA RECARGA</h1>
-  <p class="subtitulo" id="tagline-evento">— DESTRONANDO ÍDOLOS —</p>
+  <p class="subtitulo" id="tagline-evento">"DESTRONANDO ÍDOLOS" —"</p>
 
   <div class="linha"></div>
+
+  
 
   <!-- BADGE DATA -->
   <div class="data-badge">
@@ -70,8 +72,11 @@
     <span id="badge-data">27 FEV 2026</span>
   </div>
 
+  <p class="faltam" id="tagline-evento">FALTAM</p>
+
   <!-- COUNTDOWN -->
   <div class="countdown-wrap" id="countdown-wrap">
+    
     <div class="bloco">
       <div class="numero-wrap"><span class="numero" id="dias">00</span></div>
       <span class="label">Dias</span>
@@ -141,7 +146,7 @@
       <div class="card-icon">📍</div>
       <div class="card-titulo">Localização</div>
       <div class="card-valor">
-        <a id="link-endereco" href="#" target="_blank" rel="noopener">
+        <a id="link-endereco" href="https://share.google/FLG6hebvAmGrC3NvT" target="_blank" rel="noopener">
           <span id="texto-endereco">Rua Exemplo, 123 — Cidade/UF</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
@@ -248,8 +253,20 @@
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
-  // O evento termina 8h depois do início
-  const DURACAO_EVENTO_MS = 8 * 60 * 60 * 1000;
+ function calcularDuracao() {
+  const [hi, mi] = CONFIG.horarioInicio.split(':').map(Number);
+  const [hf, mf] = CONFIG.horarioFim.split(':').map(Number);
+
+  let inicio = hi * 60 + mi;
+  let fim = hf * 60 + mf;
+
+  if (fim < inicio) fim += 24 * 60;
+
+  return (fim - inicio) * 60 * 1000;
+}
+
+const DURACAO_EVENTO_MS = calcularDuracao();
+
 
   function atualizar() {
     const agora     = new Date();
@@ -308,32 +325,7 @@
   atualizar();
   setInterval(atualizar, 1000);
 
-  async function carregarConfirmados() {
-  const res = await fetch('/api/confirmar');
-  const data = await res.json();
-  document.getElementById('qtd-confirmados').textContent = data.total;
-}
 
-async function confirmarPresenca() {
-  const btn = document.getElementById('btn-confirmar');
-
-  btn.disabled = true;
-  btn.textContent = 'Confirmando...';
-
-  const res = await fetch('/api/confirmar', {
-    method: 'POST'
-  });
-
-  const data = await res.json();
-
-  document.getElementById('qtd-confirmados').textContent = data.total;
-  btn.textContent = 'Confirmado ✓';
-}
-
-document.getElementById('btn-confirmar')
-  .addEventListener('click', confirmarPresenca);
-
-carregarConfirmados();
 
 </script>
 </body>

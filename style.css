@@ -3,8 +3,8 @@
     ═══════════════════════════════════════════ */
     :root {
       /* 🎨 Cores principais */
-      --cor-fundo:        #ff4800;       /* fundo da página */
-      --cor-fundo2:       #ffa909;       /* fundo secundário */
+      --cor-fundo:        #f13a10;       /* fundo da página */
+      --cor-fundo2:       #c32830;       /* fundo secundário */
       --cor-primaria:     #fffeaf;       /* roxo principal */
       --cor-acento:       #ffe591;       /* rosa neon */
       --cor-brilho:       #fff56a;       /* lilás brilhante */
@@ -141,6 +141,17 @@
       text-transform: uppercase;
       color: var(--cor-texto-suave);
       margin-top: 10px;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+      .faltam {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--cor-texto-suave);
+      margin-top: 10px;
+      margin-bottom: 24px;
       animation: fadeDown 1s 0.2s ease both;
     }
 
@@ -362,18 +373,18 @@
       font-weight: 700;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--cor-texto-suave);
+      color: var(--cor-acento);
     }
 
     .card-valor {
       font-size: 15px;
       font-weight: 700;
-      color: var(--cor-texto);
+      color: white;
       line-height: 1.4;
     }
 
     .card a {
-      color: var(--cor-brilho);
+      color: white;
       text-decoration: none;
       font-weight: 700;
       font-size: 15px;
@@ -501,29 +512,3 @@
   letter-spacing: 0.5px;
 }
 
-.confirmacao {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.btn-confirmar {
-  background: var(--cor-primaria);
-  color: #fff;
-  border: none;
-  padding: 14px 22px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-confirmar:hover {
-  transform: translateY(-2px);
-}
-
-.contador-confirmados {
-  margin-top: 10px;
-  font-size: 14px;
-  opacity: 0.8;
-}
